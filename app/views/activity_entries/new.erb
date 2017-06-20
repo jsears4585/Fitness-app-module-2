@@ -1,0 +1,9 @@
+<h1>Enter an activity entry</h1>
+<%= form_for @activity_entry do |f| %>
+<%= f.label :name %><br>
+<% options = options_from_collection_for_select(@data, "id", "name") %>
+<%= f.select :id, options %><br>
+<%= f.label 'Time spent being active(mins)' %><br>
+<%= f.number_field :minutes %><br><br>
+<%= f.submit %>
+<% end %>
