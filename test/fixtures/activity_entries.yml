@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  type: 
+  minutes: 1
+  calories_burned: 1
+  user: one
+
+two:
+  type: 
+  minutes: 1
+  calories_burned: 1
+  user: two

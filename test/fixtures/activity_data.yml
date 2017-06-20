@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  type: 
+  cph_130: 1
+  cph_155: 1
+  cph_180: 1
+  cph_205: 1
+
+two:
+  type: 
+  cph_130: 1
+  cph_155: 1
+  cph_180: 1
+  cph_205: 1

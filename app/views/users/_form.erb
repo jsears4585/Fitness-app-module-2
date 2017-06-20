@@ -1,0 +1,29 @@
+<%= form_for @user do |f| %>
+
+  <%= f.label :username %><br>
+  <%= f.text_field :username %><br>
+
+  <%= f.label :first_name %><br>
+  <%= f.text_field :first_name %><br>
+
+  <%= f.label :last_name %><br>
+  <%= f.text_field :last_name %><br>
+
+  <%= f.label :city %><br>
+  <%= f.text_field :city %><br>
+
+  <%= f.label :age %><br>
+  <%= f.number_field :age %><br>
+
+  <%= f.label :weight %><br>
+  <%= f.number_field :weight %><br>
+
+  <%= f.label :password %><br>
+  <%= f.password_field :password %><br>
+
+  <%= f.label 'Confirm your password: ' %><br>
+  <%= f.password_field :password_confirmation %><br>
+  <br>
+  <%= f.submit %>
+
+<% end %>
