@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   get '/signup', to: 'users#new', as: 'signup'
   resources :users, only: [:create, :show, :edit, :update, :destroy]
 
-  resources :activity_entries
+  get '/entries/new', to: 'activity_entries#new', as: 'new_entry'
+  resources :activity_entries, only: [:create, :edit]
 
 end
