@@ -18,4 +18,5 @@ class User < ApplicationRecord
       "cph_205"
     end
   end
+
 end
