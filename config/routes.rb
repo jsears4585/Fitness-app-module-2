@@ -13,4 +13,11 @@ Rails.application.routes.draw do
   get '/entries/new', to: 'activity_entries#new', as: 'new_entry'
   resources :activity_entries, only: [:create, :edit]
 
+  get '/users/:id/admin', to: 'users#admin', as: "admin_user"
+
+  get 'signup/admin', to: 'users#new_admin', as: 'admin_signup'
+  post 'signup/admin', to: 'users#create'
+
+
+
 end

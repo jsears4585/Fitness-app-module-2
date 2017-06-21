@@ -9,6 +9,10 @@
 <%= link_to 'Logout', logout_path, method: :delete %><br>
 <%= link_to 'Add an activity', new_entry_path %>
 
+<% if current_user.admin %>
+<%= link_to "Admin Dashboard", admin_user_path %>
+<% end %>
+
 <div class="user_timeline">
   <% @user.activity_entries.each do |act| %>
     <br><hr><br>

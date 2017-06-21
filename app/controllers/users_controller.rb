@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :require_login, except: [:new, :create]
+  before_action :require_login, except: [:new, :create, :new_admin]
 
   def new
     @user = User.new
@@ -13,6 +13,13 @@ class UsersController < ApplicationController
     else
       render :new
     end
+  end
+
+  def admin
+  end
+
+  def new_admin
+    @user = User.new
   end
 
   def show
@@ -52,8 +59,12 @@ class UsersController < ApplicationController
         :password,
         :password_confirmation,
         :age,
-        :weight
+        :weight,
+        :admin,
+        :email
       )
     end
+
+
 
 end
