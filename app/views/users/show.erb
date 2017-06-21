@@ -1,19 +1,15 @@
 <h1>Hi, <%= @user.first_name %>!</h1>
 
-
 <div class="user_details">
   City: <%= @user.city %><br>
   Age: <%= @user.age %><br>
   Weight: <%= @user.weight %><br>
 </div>
 
-<% if @user == current_user %>
-  <p><%= link_to 'Logout', logout_path, method: :delete %><p>
-    <% else %>
-    <p> <%= link_to 'Login', login_path %> </p>
-    <% end %>
-
 <%= link_to 'Add an activity', new_entry_path %>
+<%= link_to 'Enter a challenge', challenges_path %>
+<%= link_to 'Logout', logout_path, method: :delete %>
+
 
 <% if current_user.admin %>
   <%= link_to "Admin Dashboard", dashboard_path %>

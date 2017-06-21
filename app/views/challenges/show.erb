@@ -2,7 +2,12 @@
 <p> Rules for this challenge: <%= @challenge.rules %> </p>
 <p>Challenge starts on: <%= @challenge.start_date %></p>
 <p>Challenge ends on: <%= @challenge.end_date %></p>
+<p>Other participants:
+  <% @challenge.users.each do |user| %>
+    <li><%= link_to user.username, user_path(user) %></li>
 
+  <% end %>
+<br>
 <%= link_to "All challenges", challenges_path %>
 
 <%= form_tag users_challenges_path do  %>
