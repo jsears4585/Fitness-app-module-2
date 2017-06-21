@@ -25,4 +25,6 @@ class User < ApplicationRecord
     self.activity_entries.where("created_at BETWEEN ? AND ?", @date_from, @date_to).sum(:calories_burned)
   end
 
+  # def find_calories_by_challenge(challenege, )
+
 end
