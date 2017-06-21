@@ -1,3 +1,5 @@
+<h1>New User</h1>
+
 <%= form_for @user do |f| %>
 
   <%= f.label :username %><br>
@@ -27,6 +29,11 @@
   <%= f.label 'Confirm your password: ' %><br>
   <%= f.password_field :password_confirmation %><br>
   <br>
+
+  <%= f.label 'Admin ' %><br>
+  <%= f.radio_button :admin, true, :value => true%>
+  <br>
+
   <%= f.submit %>
 
 <% end %>
