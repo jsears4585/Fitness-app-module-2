@@ -4,6 +4,14 @@
 
 h1 { text-indent: 20px; }
 
+.navbar-inverse .navbar-brand {
+  color: #c8c8c8;
+}
+
+.navbar-inverse .navbar-nav > li > a {
+  color: #c8c8c8;
+}
+
 #profile-block {
   display:inline-block;
   border-radius: 8px;
@@ -11,16 +19,18 @@ h1 { text-indent: 20px; }
   margin: 2px;
   background: #e8e8e8;
   position: relative;
-  bottom: 20px;
+  top: 20px;
   left: 10px;
 }
 
 #chartContainer {
-  display:inline-block;
-  padding-left: 120px;
+  display: inline-block;
+  padding-left: 60px;
 }
 
+#wrapper { margin-left: 90px; }
 #user-wrapper { width: 80%; }
+#top-wrapper { margin-top: 80px; }
 
 #history {
   width: 35%;
@@ -37,5 +47,5 @@ h1 { text-indent: 20px; }
   border-radius: 8px;
   background: #f0f0f0;
   padding: 12px;
-  margin: 12px;
+  margin: 12px 12px 12px 60px;
 }
