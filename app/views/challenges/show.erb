@@ -1,0 +1,11 @@
+<h2> Challenge: <%= @challenge.name %> </h2>
+<p> Rules for this challenge: <%= @challenge.rules %> </p>
+<p>Challenge starts on: <%= @challenge.start_date %></p>
+<p>Challenge ends on: <%= @challenge.end_date %></p>
+
+<%= link_to "All challenges", challenges_path %>
+
+<%= form_tag users_challenges_path do  %>
+  <%= hidden_field_tag "challenge_id", @challenge.id %>
+  <%= submit_tag "Enter this challenge" %>
+  <% end %>
