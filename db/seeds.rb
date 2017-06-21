@@ -34,3 +34,7 @@ puts "Activity created"
 Challenge.create(name: "This is a cool thing to do", rules: "Workout out literally all the time, cuz you should and it's awesome", start_date: (DateTime.now + 1), end_date: (DateTime.now + 8))
 
 puts "Challenge created"
+
+UsersChallenge.create(user_id: 1, challenge_id: 1)
+
+puts "User-Challenge association created"
