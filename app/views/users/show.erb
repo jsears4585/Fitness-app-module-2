@@ -10,14 +10,14 @@
 <%= link_to 'Add an activity', new_entry_path %>
 
 <% if current_user.admin %>
-  <%= link_to "Admin Dashboard", admin_user_path %>
+  <%= link_to "Admin Dashboard", dashboard_path %>
 <% end %>
 
 <div id="chartContainer"><%= @chart.render() %></div>
 
 <div class="user_timeline">
   <h2> <%= "#{@user.first_name}'s activity posts: "%></h2>
-  <% @user.activity_entries.each do |act| %>
+  <% @user.activity_entries.reverse.each do |act| %>
     <br><hr><br>
     Activity: <%= act.name %><br>
     Calories Burned: <%= act.calories_burned %><br>
@@ -27,7 +27,7 @@
 
 <div class="user_challenges">
   <h2> <%= "Your challenges: "%></h2>
-  <% @user.challenges.each do |challenge| %>
+  <% @user.challenges.reverse.each do |challenge| %>
     <br><hr><br>
     Challenge name: <%=  link_to challenge.name, challenge_path(challenge) %><br>
     Challenge starts: <%= challenge.start_date %><br>
