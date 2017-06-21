@@ -1,8 +1,12 @@
 class User < ApplicationRecord
   has_secure_password
+
   has_many :activity_entries
+  has_many :users_challenges
+  has_many :challenges, through: :users_challenges
+
   validates :username, uniqueness: true
-  # validates :email, uniqueness: true
+
   def weight_class
     if self.weight <= 130
       "cph_130"
@@ -14,6 +18,4 @@ class User < ApplicationRecord
       "cph_205"
     end
   end
-
-
 end

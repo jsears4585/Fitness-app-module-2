@@ -9,7 +9,7 @@ class ActivityDatum < ApplicationRecord
   def cals_burned(weight_class, hours)
     case weight_class
     when "cph_130"
-      self.cph_130 *  hours
+      self.cph_130 * hours
     when "cph_155"
       self.cph_155 * hours
     when "cph_180"
