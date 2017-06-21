@@ -50,5 +50,4 @@ class ActivityEntriesController < ApplicationController
   end
 
 
-
 end

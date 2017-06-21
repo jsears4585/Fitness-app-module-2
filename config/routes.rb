@@ -13,4 +13,6 @@ Rails.application.routes.draw do
   get '/entries/new', to: 'activity_entries#new', as: 'new_entry'
   resources :activity_entries, only: [:create, :edit]
 
+  resources :users_challenges, only: [:new, :create]
+
 end
