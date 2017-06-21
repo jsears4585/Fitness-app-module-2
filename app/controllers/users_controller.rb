@@ -69,15 +69,71 @@ class UsersController < ApplicationController
     end
   end
 
-  def admin
-  end
-
-  def new_admin
-    @user = User.new
-  end
-
   def show
     @user = find_user
+    @chart = Fusioncharts::Chart.new({
+      width: "600",
+      height: "400",
+      type: "column2d",
+      renderAt: "chartContainer",
+      dataSource: {
+        "chart": {
+            "caption": "Weekly Calories Burned",
+            "xAxisName": "Days",
+            "yAxisName": "Calories Burned",
+            "paletteColors": "#0075c2",
+            "bgColor": "#ffffff",
+            "borderAlpha": "20",
+            "canvasBorderAlpha": "0",
+            "usePlotGradientColor": "0",
+            "plotBorderAlpha": "10",
+            "placevaluesInside": "1",
+            "rotatevalues": "1",
+            "valueFontColor": "#ffffff",
+            "showXAxisLine": "1",
+            "xAxisLineColor": "#999999",
+            "divlineColor": "#999999",
+            "divLineDashed": "1",
+            "showAlternateHGridColor": "0",
+            "subcaptionFontBold": "0",
+            "subcaptionFontSize": "14"
+        },
+        "data": [
+            {
+                "label": "7 Days Ago",
+                "value": @user.find_calories_by_days_ago(7)
+            },
+            {
+                "label": "6 Days Ago",
+                "value": @user.find_calories_by_days_ago(6)
+            },
+            {
+                "label": "5 Days Ago",
+                "value": @user.find_calories_by_days_ago(5)
+            },
+            {
+                "label": "4 Days Ago",
+                "value": @user.find_calories_by_days_ago(4)
+            },
+            {
+                "label": "3 Days Ago",
+                "value": @user.find_calories_by_days_ago(3)
+            },
+            {
+                "label": "2 Days Ago",
+                "value": @user.find_calories_by_days_ago(2)
+            },
+            {
+                "label": "Yesterday",
+                "value": @user.find_calories_by_days_ago(1)
+            },
+            {
+                "label": "Today",
+                "value": @user.activity_entries.where("created_at >= ?", Time.zone.now.beginning_of_day).sum(:calories_burned)
+            }
+          ]
+        }
+      })
   end
 
   def edit
@@ -96,6 +152,15 @@ class UsersController < ApplicationController
   def destroy
     find_user.destroy
     redirect_to root_path
+  end
+
+  # Admin actions
+
+  def admin
+  end
+
+  def new_admin
+    @user = User.new
   end
 
   private
@@ -118,7 +183,5 @@ class UsersController < ApplicationController
         :email
       )
     end
-
-
 
 end

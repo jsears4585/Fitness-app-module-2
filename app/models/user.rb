@@ -19,4 +19,10 @@ class User < ApplicationRecord
     end
   end
 
+  def find_calories_by_days_ago days_ago
+    @date_from = (Time.zone.now - days_ago.day).beginning_of_day
+    @date_to = (Time.zone.now - (days_ago - 1).day).beginning_of_day
+    self.activity_entries.where("created_at BETWEEN ? AND ?", @date_from, @date_to).sum(:calories_burned)
+  end
+
 end

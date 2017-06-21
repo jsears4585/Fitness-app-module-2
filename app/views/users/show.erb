@@ -13,6 +13,8 @@
   <%= link_to "Admin Dashboard", admin_user_path %>
 <% end %>
 
+<div id="chartContainer"><%= @chart.render() %></div>
+
 <div class="user_timeline">
   <h2> <%= "#{@user.first_name}'s activity posts: "%></h2>
   <% @user.activity_entries.each do |act| %>
