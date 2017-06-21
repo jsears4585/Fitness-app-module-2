@@ -1,0 +1,11 @@
+<h1>Challenge yourself! Find a challenge to enter!</h1>
+<tbody>
+  <% @challenges.each do |challenge| %>
+    <tr>
+      <td><%= link_to challenge.name, challenge_path(challenge) %></td>
+      <td><%=challenge.start_date%></td>
+      <td><%=challenge.end_date%></td>
+    </tr>
+    <br>
+<% end %>
+</tbody>

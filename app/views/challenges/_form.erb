@@ -1,0 +1,11 @@
+<%= form_for @challenge do |f| %>
+<%= f.label "Challenge Name" %><br>
+<%= f.text_field :name %><br>
+<%= f.label :rules %><br>
+<%= f.text_area :rules %><br>
+<%= f.label "Challenge start date and time" %><br>
+<%= f.datetime_field :start_date %><br>
+<%= f.label "Challenge end date and time" %><br>
+<%= f.datetime_field :end_date%><br><br>
+<%= f.submit %>
+<% end  %>
