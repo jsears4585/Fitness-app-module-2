@@ -1,38 +1,61 @@
 <h1>Hi, <%= @user.first_name %>!</h1>
 
-<div class="user_details">
+<div id="profile-block">
   City: <%= @user.city %><br>
   Age: <%= @user.age %><br>
   Weight: <%= @user.weight %><br>
-</div>
+  <br>
+  <%= link_to 'Add an activity', new_entry_path %><br>
+  <%= link_to 'Enter a challenge', challenges_path %><br>
+  <%= link_to 'Logout', logout_path, method: :delete %><br>
 
-<%= link_to 'Add an activity', new_entry_path %>
-<%= link_to 'Enter a challenge', challenges_path %>
-<%= link_to 'Logout', logout_path, method: :delete %>
-
-
-<% if current_user.admin %>
-  <%= link_to "Admin Dashboard", dashboard_path %>
-<% end %>
-
-<div id="chartContainer"><%= @chart.render() %></div>
-
-<div class="user_timeline">
-  <h2> <%= "#{@user.first_name}'s activity posts: "%></h2>
-  <% @user.activity_entries.reverse.each do |act| %>
-    <br><hr><br>
-    Activity: <%= act.name %><br>
-    Calories Burned: <%= act.calories_burned %><br>
-    Workout date: <%= act.created_at %><br>
+  <% if current_user.admin %>
+    <%= link_to "Admin Dashboard", dashboard_path %>
   <% end %>
 </div>
 
-<div class="user_challenges">
-  <h2> <%= "Your challenges: "%></h2>
-  <% @user.challenges.reverse.each do |challenge| %>
-    <br><hr><br>
-    Challenge name: <%=  link_to challenge.name, challenge_path(challenge) %><br>
-    Challenge starts: <%= challenge.start_date %><br>
-    Challenge ends: <%= challenge.end_date %><br>
-  <% end  %>
+<div id="chartContainer">
+  <%= @chart.render() %>
+</div>
+
+<div id="user-wrapper">
+  <div id="history">
+    <h2>Exercise History</h2>
+    <table class="user_timeline">
+      <thead>
+        <th style="text-align: left;">Activity</th>
+        <th style="text-align: right;">Calories Burned</th>
+        <th style="text-align: right;">Workout Date</th>
+      </thead>
+      <tbody>
+      <% @user.activity_entries.reverse.each do |act| %>
+      <tr>
+        <td style="text-align: left;"><%= act.name %></td>
+        <td style="text-align: right;"><%= act.calories_burned %></td>
+        <td style="text-align: right;"><%= (act.created_at).strftime("%m/%d/%Y") %></td>
+      </tr>
+      <% end %>
+      </tbody>
+    </table>
+  </div>
+
+  <div id="challenges">
+    <h2>Active Challenges</h2>
+    <table class="user_challenges">
+      <thead>
+        <th style="text-align: left;">Name</th>
+        <th style="text-align: right;">Start Date</th>
+        <th style="text-align: right;">End Date</th>
+      </thead>
+      <tbody>
+      <% @user.challenges.reverse.each do |challenge| %>
+      <tr>
+        <td style="text-align: left;"><%= link_to(challenge.name, challenge_path(challenge)) %></td>
+        <td style="text-align: right;"><%= (challenge.start_date).strftime("%m/%d/%Y") %></td>
+        <td style="text-align: right;"><%= (challenge.end_date).strftime("%m/%d/%Y") %></td>
+      </tr>
+      <% end %>
+      </tbody>
+    </table>
+  </div>
 </div>

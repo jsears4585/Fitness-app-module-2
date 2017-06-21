@@ -21,7 +21,7 @@ class UsersController < ApplicationController
     @chart = Fusioncharts::Chart.new({
       width: "600",
       height: "400",
-      type: "column2d",
+      type: "column3d",
       renderAt: "chartContainer",
       dataSource: {
         "chart": {
@@ -31,8 +31,6 @@ class UsersController < ApplicationController
             "paletteColors": "#0075c2",
             "bgColor": "#ffffff",
             "borderAlpha": "20",
-            "canvasBorderAlpha": "0",
-            "usePlotGradientColor": "0",
             "plotBorderAlpha": "10",
             "placevaluesInside": "1",
             "rotatevalues": "1",
@@ -42,8 +40,6 @@ class UsersController < ApplicationController
             "divlineColor": "#999999",
             "divLineDashed": "1",
             "showAlternateHGridColor": "0",
-            "subcaptionFontBold": "0",
-            "subcaptionFontSize": "14"
         },
         "data": [
             {
