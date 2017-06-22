@@ -25,7 +25,7 @@ class UsersController < ApplicationController
       renderAt: "chartContainer",
       dataSource: {
         "chart": {
-            "caption": "Weekly Calories Burned",
+            "caption": "Weekly Calories Burned (Last 7 Days)",
             "xAxisName": "Days",
             "yAxisName": "Calories Burned",
             "paletteColors": "#0075c2",

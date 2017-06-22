@@ -13,8 +13,16 @@
 //= require rails-ujs
 //= require turbolinks
 
+//= require jquery
+//= require jquery_ujs
+//= require dataTables/jquery.dataTables
+
 //= require fusioncharts/fusioncharts
 //= require fusioncharts/fusioncharts.charts
 //= require fusioncharts/themes/fusioncharts.theme.fint
 
 //= require_tree .
+
+$(document).ready(function() {
+  $('#example').DataTable();
+});
