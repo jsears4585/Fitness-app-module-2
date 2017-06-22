@@ -1,3 +1,69 @@
-<h1>Dashboard</h1>
+<h1>Administrator Dashboard</h1>
 
+<!---Recent Signups----->
 <div id="chartContainer"><%= @signup_chart.render() %></div>
+<br>
+<br>
+<br>
+
+<!---Activity Analytics----->
+<div><h2>Activities</h2></div>
+<table id="user-history" class="user_timeline table table-hover">
+  <thead>
+    <th style="text-align: left;">Activity</th>
+    <th style="text-align: right;">Calories Burned</th>
+    <th style="text-align: right;">Workout Date</th>
+    <th style="text-align: right;">User</th>
+    <th style="text-align: right;">Username</th>
+  </thead>
+  <tbody>
+  <% ActivityEntry.all.each do |ae| %>
+  <tr>
+    <td style="text-align: left;"><%= ae.name %></td>
+    <td style="text-align: right;"><%= ae.calories_burned %></td>
+    <td style="text-align: right;"><%= ae.created_at.strftime("%m/%d/%Y") %></td>
+    <td style="text-align: right;"><%= ae.user.first_name %> <%= ae.user.last_name %>
+    <td style="text-align: right;"><%= ae.user.username %>
+  <% end %>
+  </tbody>
+</table>
+  <br>
+  <br>
+  <br>
+  <!--List of Challenges-->
+  <div>
+  <h2>Challenges</h2>
+  <table class="table table-bordered">
+    <tr>
+      <th>Name</th>
+      <th>End Date</th>
+      <th>Participants</th>
+    </tr>
+    <tr>
+    <% Challenge.all.each do |c| %>
+    <td><%= c.name %></td>
+    <td><%= c.end_date.strftime("%m/%d/%Y") %> </td>
+    <td><%= c.users.count %></td>
+    </tr>
+    <% end %>
+  </table>
+  </div>
+
+<!--List of All users-->
+  <div>
+    <h2>All Users</h2>
+    <table class= "table table-striped">
+      <tr>
+        <th>Username</th>
+        <th>Name</th>
+        <th>Signup Date</th>
+      </tr>
+      <tr>
+      <% User.all.each do |u| %>
+      <td><%= u.username %></td>
+      <td><%= u.first_name %> <%= u.last_name %></td>
+      <td><%= u.created_at.strftime("%m/%d/%Y") %></td>
+      </tr>
+      <% end %>
+    </table>
+  </div>

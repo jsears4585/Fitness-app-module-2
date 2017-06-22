@@ -52,9 +52,9 @@ class DashboardController < ApplicationController
     # })
     #Signup Analytics
     @signup_chart = Fusioncharts::Chart.new({
-      width: "400",
-      height: "200",
-      type: "bar3d",
+      width: "600",
+      height: "400",
+      type: "bar2d",
       renderAt: "chartContainer",
       dataSource: {
       "chart": {
@@ -102,5 +102,6 @@ class DashboardController < ApplicationController
     }
   }
 )
+
   end
 end
