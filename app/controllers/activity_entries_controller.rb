@@ -10,6 +10,7 @@ class ActivityEntriesController < ApplicationController
 
     # Can we stash this somewhere else to reduce clutter?
     weight_class = current_user.weight_class
+
     @activity = ActivityDatum.find(params[:activity_entry][:id])
     hours = @activity.mins_to_hours(params[:activity_entry][:minutes])
     cals_burned = (@activity.cals_burned(weight_class, hours)).to_i
