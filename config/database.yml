@@ -10,3 +10,7 @@ development:
 test:
   <<: *default
   database: health-app_test
+
+production:
+  <<: *default
+  database: health-app_production

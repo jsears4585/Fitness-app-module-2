@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   resources :users, only: [:create, :show, :edit, :update, :destroy]
 
   get '/entries/new', to: 'activity_entries#new', as: 'new_entry'
-  resources :activity_entries, only: [:create, :edit]
+  resources :activity_entries, only: [:create, :edit, :destroy]
 
   get '/dashboard', to: 'dashboard#new', as: "dashboard"
 

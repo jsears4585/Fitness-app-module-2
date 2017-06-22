@@ -40,6 +40,7 @@ class ActivityEntriesController < ApplicationController
   def destroy
     @current_entry = current_entry
     @current_entry.destroy
+    flash[:success] = "Record successfully deleted!"
     redirect_to user_path(current_user)
   end
 
@@ -47,7 +48,6 @@ class ActivityEntriesController < ApplicationController
   def current_entry
     ActivityEntry.find(params[:id])
   end
-
 
   def activity_entry_params
     params.require(:activity_entry).permit(:id, :minutes)

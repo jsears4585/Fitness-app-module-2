@@ -19,7 +19,6 @@ class UsersController < ApplicationController
 
   def show
     @user = find_user
-
     @chart = Fusioncharts::Chart.new({
       width: "600",
       height: "400",
@@ -79,7 +78,10 @@ class UsersController < ApplicationController
           ]
         }
       })
-    
+    unless session[:user_id] == @user.id
+      flash[:error] = "Mind ya business!"
+      redirect_to user_path(session[:user_id])
+    end
   end
 
   def edit
