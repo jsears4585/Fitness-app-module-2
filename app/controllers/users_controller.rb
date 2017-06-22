@@ -1,3 +1,5 @@
+# Please work!
+
 class UsersController < ApplicationController
   before_action :require_login, except: [:new, :create, :new_admin]
 
