@@ -1,18 +1,39 @@
-<h2> Challenge: <%= @challenge.name %> </h2>
-<p> Rules for this challenge: <%= @challenge.rules %> </p>
-<p>Challenge starts on: <%= @challenge.start_date.strftime("%m/%d/%Y") %></p>
-<p>Challenge ends on: <%= @challenge.end_date.strftime("%m/%d/%Y") %></p>
-<p>Other participants:
+<h2> Challenge: <%= @challenge.name %></h2>
 
+<h3>The Rules:</h3>
+<p style="font-size: 18px;"><%= @challenge.rules %></p>
+
+<div style="display: inline-block;
+    background: #eeeeee;
+    border-radius: 9px;
+    padding: 14px 15px 6px 19px;
+    margin-top: 18px;
+    margin-bottom: 10px;">
+  <p><span style="font-weight: 700">Start Date:</span> <%= @challenge.start_date.strftime("%m/%d/%Y") %></p>
+  <p><span style="font-weight: 700">End Date:</span> <%= @challenge.end_date.strftime("%m/%d/%Y") %></p>
+</div>
+
+<h3>The awesome participants:</h3>
+<table id="challenge-people" class="table table-hover">
+  <thead>
+    <th style="text-align: left;">Contestant</th>
+    <th style="text-align: right;">Calories Burned So Far</th>
+  </thead>
+  <tbody>
   <% @challenge.users.each do |user| %>
-
-    <li><%=user.username%> - <%= user.find_calories_by_challenge(@challenge.start_date)%> calories burned so far</li>
-
+  <tr>
+    <td style="text-align: left;"><%= user.first_name %> <%= user.last_name %> (<%= user.username %>)</td>
+    <td style="text-align: right;"><%= user.find_calories_by_challenge(@challenge.start_date) %></td>
+  </tr>
   <% end %>
+  </tbody>
+</table>
+
 <br>
-<%= link_to "All challenges", challenges_path %>
 
 <%= form_tag users_challenges_path do  %>
   <%= hidden_field_tag "challenge_id", @challenge.id %>
   <%= submit_tag "Enter this challenge" %>
-  <% end %>
+<% end %>
+<br>
+<br>
