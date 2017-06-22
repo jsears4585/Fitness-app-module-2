@@ -49,5 +49,4 @@ class ActivityEntriesController < ApplicationController
     params.require(:activity_entry).permit(:id, :minutes)
   end
 
-
 end
