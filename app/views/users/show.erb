@@ -33,6 +33,11 @@
         <td style="text-align: left;"><%= act.name %></td>
         <td style="text-align: right;"><%= act.calories_burned %></td>
         <td style="text-align: right;"><%= act.created_at.strftime("%m/%d/%Y") %></td>
+        <td>
+          <a href="<%= root_url %>">
+            <i class="fa fa-times" style="color: #b51111" aria-hidden="true"></i>
+          </a>
+        </td>
       </tr>
       <% end %>
       </tbody>
