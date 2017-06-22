@@ -38,6 +38,9 @@ class ActivityEntriesController < ApplicationController
   end
 
   def destroy
+    @current_entry = current_entry
+    @current_entry.destroy
+    redirect_to user_path(current_user)
   end
 
   private
