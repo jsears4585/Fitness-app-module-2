@@ -6,6 +6,7 @@
     <br>
     <%= link_to 'Add an activity', new_entry_path %><br>
     <%= link_to 'Enter a challenge', challenges_path %><br>
+    <%= link_to 'Edit profile', edit_user_path(@user) %><br>
     <%= link_to 'Logout', logout_path, method: :delete %><br>
 
     <% if current_user.admin %>

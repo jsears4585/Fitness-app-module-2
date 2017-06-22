@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   before_action :require_login, except: [:new, :create, :new_admin]
 
+
   def new
     @user = User.new
   end
@@ -18,6 +19,7 @@ class UsersController < ApplicationController
 
   def show
     @user = find_user
+
     @chart = Fusioncharts::Chart.new({
       width: "600",
       height: "400",
@@ -77,6 +79,7 @@ class UsersController < ApplicationController
           ]
         }
       })
+    
   end
 
   def edit
@@ -123,5 +126,6 @@ class UsersController < ApplicationController
         :email
       )
     end
+
 
 end
