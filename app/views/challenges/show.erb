@@ -3,8 +3,10 @@
 <p>Challenge starts on: <%= @challenge.start_date.strftime("%m/%d/%Y") %></p>
 <p>Challenge ends on: <%= @challenge.end_date.strftime("%m/%d/%Y") %></p>
 <p>Other participants:
+
   <% @challenge.users.each do |user| %>
-    <li><%= link_to user.username, user_path(user) %></li>
+
+    <li><%=user.username%> - <%= user.find_calories_by_challenge(@challenge.start_date)%> calories burned so far</li>
 
   <% end %>
 <br>
