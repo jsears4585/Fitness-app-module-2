@@ -13,6 +13,6 @@ test:
 
 production:
   <<: *default
-  database: health-app_production
-  username: health-app
-  password: <%= ENV['password'] %>
+  database: i-workout_production
+  username: i-workout
+  password: <%= ENV['August12'] %>
