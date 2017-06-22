@@ -2,8 +2,7 @@ class ActivityDatum < ApplicationRecord
   validates :name, uniqueness: true
 
   def mins_to_hours(mins)
-    mins = mins.to_i
-    (mins/60).to_f
+    mins.to_f/60
   end
 
   def cals_burned(weight_class, hours)
