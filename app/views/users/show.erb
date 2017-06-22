@@ -21,7 +21,7 @@
 <div id="user-wrapper">
   <div id="history">
     <h2>Exercise History</h2>
-    <table class="user_timeline table">
+    <table class="user_timeline table table-hover">
       <thead>
         <th style="text-align: left;">Activity</th>
         <th style="text-align: right;">Calories Burned</th>
@@ -32,7 +32,7 @@
       <tr>
         <td style="text-align: left;"><%= act.name %></td>
         <td style="text-align: right;"><%= act.calories_burned %></td>
-        <td style="text-align: right;"><%= (act.created_at).strftime("%m/%d/%Y") %></td>
+        <td style="text-align: right;"><%= act.created_at.strftime("%m/%d/%Y") %></td>
       </tr>
       <% end %>
       </tbody>
@@ -41,7 +41,7 @@
 
   <div id="challenges">
     <h2>Active Challenges</h2>
-    <table class="user_challenges table">
+    <table class="user_challenges table table-hover">
       <thead>
         <th style="text-align: left;">Name</th>
         <th style="text-align: right;">Start Date</th>
@@ -51,8 +51,8 @@
       <% @user.challenges.reverse.each do |challenge| %>
       <tr>
         <td style="text-align: left;"><%= link_to(challenge.name, challenge_path(challenge)) %></td>
-        <td style="text-align: right;"><%= (challenge.start_date).strftime("%m/%d/%Y") %></td>
-        <td style="text-align: right;"><%= (challenge.end_date).strftime("%m/%d/%Y") %></td>
+        <td style="text-align: right;"><%= challenge.start_date.strftime("%m/%d/%Y") %></td>
+        <td style="text-align: right;"><%= challenge.end_date.strftime("%m/%d/%Y") %></td>
       </tr>
       <% end %>
       </tbody>
