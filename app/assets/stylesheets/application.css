@@ -11,6 +11,18 @@
  * It is generally better to create a new file per style scope.
  *
  *= require_tree .
+ *= require dataTables/jquery.dataTables
  *= require style
  *= require_self
  */
+
+#wrapper { margin-top: 80px; margin-left: 90px; }
+
+.navbar-inverse {
+  background-color: #044b7d;
+  border-color: #094875;
+}
+
+.navbar-inverse .navbar-brand, .navbar-inverse .navbar-nav > li > a {
+  color: #eee;
+}
