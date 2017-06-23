@@ -9,7 +9,6 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       session[:user_id] = @user.id
-      # UserMailer.welcome_email(@user).deliver_now
       redirect_to user_path(@user)
     else
       render :new
@@ -105,6 +104,13 @@ class UsersController < ApplicationController
 
   def new_admin
     @user = User.new
+  end
+
+  # Avatar actions
+
+  def avatar
+    @user = User.find(params[:user_id])
+    @user.update(avatar: params[:avatar_id])
   end
 
   private

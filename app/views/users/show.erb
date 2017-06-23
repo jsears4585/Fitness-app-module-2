@@ -1,4 +1,14 @@
 <div id="top-wrapper">
+  <div class="avatar-container">
+    <% if @user.avatar == nil  %>
+      <% r = rand(11) %>
+      <%= image_tag "avatars/#{r}.png", class: 'avatar', data: r %>
+      <button id="ava">Save avatar!</button>
+    <% else %>
+      <%= image_tag "avatars/#{@user.avatar}.png", class: 'avatar', data: @user.avatar %>
+    <% end %>    
+  </div>
+
   <div id="profile-block">
     City: <%= @user.city %><br>
     Age: <%= @user.age %><br>
@@ -22,6 +32,7 @@
         <th style="text-align: left;">Activity</th>
         <th style="text-align: right;">Calories Burned</th>
         <th style="text-align: right;">Workout Date</th>
+        <th style="text-align: right;">Delete?</th>
       </thead>
       <tbody>
       <% @user.activity_entries.reverse.each do |act| %>
@@ -29,7 +40,7 @@
         <td style="text-align: left;"><%= act.name %></td>
         <td style="text-align: right;"><%= act.calories_burned %></td>
         <td style="text-align: right;"><%= act.created_at.strftime("%m/%d/%Y") %></td>
-        <td>
+        <td style="text-align: right;">
           <%= link_to( ("<i class='fa fa-times' data-method='delete' style='color: #b51111' aria-hidden='true'></i>").html_safe, activity_entry_url(act), method: :delete ) %>
         </td>
       </tr>
