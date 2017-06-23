@@ -11,7 +11,8 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
       redirect_to user_path(@user)
     else
-      render :new
+      flash[:error]= @user.errors.full_messages.first if @user.errors.any?
+      render 'new'
     end
   end
 

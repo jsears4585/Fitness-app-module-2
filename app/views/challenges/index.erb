@@ -4,18 +4,20 @@
 
 <table class="table table-hover" style="width: 800px; position: relative; bottom: 100px;">
   <thead>
-    <th style="text-align: left;">Challenge Name</th>
+    <th style="text-align: left;">Active Challenges </th>
     <th style="text-align: right;">Start Date</th>
     <th style="text-align: right;">End Date</th>
   </thead>
   <tbody>
     <% @challenges.each do |challenge| %>
+    <% if challenge.end_date > (Date.today) %>
       <tr>
         <td style="text-align: left;"><%= link_to challenge.name, challenge_path(challenge) %></td>
         <td style="text-align: right;"><%= challenge.start_date.strftime("%m/%d/%Y") %></td>
         <td style="text-align: right;"><%= challenge.end_date.strftime("%m/%d/%Y") %></td>
       </tr>
       <br>
+      <% end %>
   <% end %>
   </tbody>
 </table>

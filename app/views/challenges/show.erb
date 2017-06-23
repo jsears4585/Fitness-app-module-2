@@ -24,7 +24,9 @@
   <tr>
 
     <td style="text-align: left;"><%= user.first_name %> <%= user.last_name %> (<%= user.username %>)</td>
-    <td style="text-align: right;"><%= user.find_calories_by_challenge(@challenge.start_date, @challenge.end_date) %></td>
+
+    <td style="text-align: right;"><%= user.find_calories_by_challenge(@challenge.start_date) %></td>
+    
   </tr>
   <% end %>
   </tbody>
