@@ -27,14 +27,16 @@ $(document).ready(function() {
   $('#user-history, #challenge-people, #activity-analytics, #all-users').DataTable();
   $('#ava').on('click', function() {
     var arr = window.location.href.split("/");
-    var user_id = arr[arr.length - 1];
-    var avatar_id = $('.avatar').attr('data');
     var params = {
-      user_id : user_id,
-      avatar_id : avatar_id
+      user_id : arr[arr.length - 1],
+      avatar_id : $('.avatar').attr('data')
     };
-    $.post('/avatar', params, function(){
-      $('#ava').hide(400);
-    });
+    post_it(params);
   });
 });
+
+var post_it = function() {
+  $.post('/avatar', params, function(){
+    $('#ava').hide(400);
+  });
+}
