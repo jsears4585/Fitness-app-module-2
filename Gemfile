@@ -35,6 +35,7 @@ gem 'fusioncharts-rails'
 gem 'bootstrap-sass', '3.2.0.2'
 gem 'jquery-rails'
 gem 'jquery-datatables-rails', '~> 3.4.0'
+gem 'validates_email_format_of'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

@@ -24,5 +24,5 @@
 //= require_tree .
 
 $(document).ready(function() {
-  $('#user-history, #challenge-people').DataTable();
+  $('#user-history, #challenge-people, #activity-analytics, #all-users').DataTable();
 });

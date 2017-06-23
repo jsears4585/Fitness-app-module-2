@@ -6,6 +6,8 @@ class User < ApplicationRecord
   has_many :challenges, through: :users_challenges
 
   validates :username, uniqueness: true
+  validates :email, email_format: { message: "isn't properly formatted." }
+  validates :email, uniqueness: true
 
   def weight_class
     if self.weight <= 130
