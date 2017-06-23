@@ -8,6 +8,7 @@ class User < ApplicationRecord
   validates :username, uniqueness: {message: "has already been taken!"}
   validates :username, :first_name, :last_name, :city, :password, :age, :weight, :email, presence: true
   validates :email, uniqueness: true
+  validates :email, email_format: { message: "isn't properly formatted." }
   validates :age, numericality: {greater_than_or_equal_to: 17}
 
   def weight_class
