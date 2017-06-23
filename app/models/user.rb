@@ -5,7 +5,10 @@ class User < ApplicationRecord
   has_many :users_challenges
   has_many :challenges, through: :users_challenges
 
-  validates :username, uniqueness: true
+  validates :username, uniqueness: {message: "has already been taken!"}
+  validates :username, :first_name, :last_name, :city, :password, :age, :weight, :email, presence: true
+  validates :email, uniqueness: true
+  validates :age, numericality: {greater_than_or_equal_to: 17}
 
   def weight_class
     if self.weight <= 130

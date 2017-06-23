@@ -12,7 +12,8 @@ class UsersController < ApplicationController
       # UserMailer.welcome_email(@user).deliver_now
       redirect_to user_path(@user)
     else
-      render :new
+      flash[:error]= @user.errors.full_messages.first if @user.errors.any?
+      render 'new'
     end
   end
 
