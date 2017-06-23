@@ -19,14 +19,15 @@ h1 { text-indent: 20px; }
   margin: 2px;
   background: #f8f8f8;
   position: relative;
-  top: 20px;
-  left: 10px;
+  top: 52px;
+  left: 14px;
 }
 
 .user-chart {
   display: inline-block;
   padding-left: 100px;
-  margin-bottom: 50px;
+  position: relative;
+  bottom: 90px;
 }
 
 #history {
@@ -37,10 +38,27 @@ h1 { text-indent: 20px; }
   margin: 12px;
 }
 
+#top-wrapper {
+  height: 440px;
+}
+
 #challenges {
   width: 35%;
   display: inline-block;
   border-radius: 8px;
   padding: 12px;
   margin: 12px 12px 12px 60px;
+}
+
+.avatar {
+  width: 120px;
+  position: relative;
+  top: 49px;
+  left: 20px;
+}
+
+#ava {
+  position: relative;
+  right: 85px;
+  top: 130px;
 }

@@ -1,6 +1,8 @@
 class ActivityEntriesController < ApplicationController
   before_action :require_login
 
+  # this is a change
+
   def new
     @activity_entry = ActivityEntry.new
     @data = ActivityDatum.all

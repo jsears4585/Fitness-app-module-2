@@ -27,4 +27,6 @@ Rails.application.routes.draw do
     get code, :to => "errors#show", :code => code
   end
 
+  post '/avatar', to: 'users#avatar', as: 'avatar'
+
 end

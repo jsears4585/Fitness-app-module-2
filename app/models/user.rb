@@ -25,26 +25,19 @@ class User < ApplicationRecord
 
   def find_calories_by_days_ago(days_ago)
     @date_from = (Time.zone.now - days_ago.day).beginning_of_day
-    @date_to = (Time.zone .now - (days_ago - 1).day).beginning_of_day
+    @date_to = (Time.zone.now - (days_ago - 1).day).beginning_of_day
     self.activity_entries.where("created_at BETWEEN ? AND ?", @date_from, @date_to).sum(:calories_burned)
   end
 
-
-  def find_calories_by_challenge(start_date)
-    self.activity_entries.where("created_at BETWEEN ? AND ?", start_date, Date.today).sum(:calories_burned)
+  def find_calories_by_challenge(start_date, end_date)
+    self.activity_entries.where("created_at BETWEEN ? AND ?", (start_date - 5.hours), (end_date- 5.hours)).sum(:calories_burned)
   end
 
-##-----Admin feature methods------>
-
-
-
   def self.last_week
-    #count of all new users signed up in the last week
-     User.where('created_at BETWEEN ? AND ?', (Date.today - 7),(Date.today + 1))
+     User.where('created_at BETWEEN ? AND ?', (Time.zone.now - 7),(Time.zone.now + 1))
   end
 
   def self.new_ytd(year)
-    #count of all new years signed up since the beginning of the year
     User.where('created_at BETWEEN ? AND ?', "#{year}-01-01", "#{year}-12-31")
   end
 
@@ -53,20 +46,7 @@ class User < ApplicationRecord
   end
 
   def self.active_users
-    #users that have logged an activity in the last 7 days
-    User.where(@user.activity_entries.where("created_at BETWEEN ? AND ?", Date.today, Date.today - 7))
-  end
-
-  def self.super_users
-    #users that have logged more than 5 activities in the last 7 days_ago
-    #user's activities created_at BETWEEN ? AND ?', "Date.today, Date.today - 7
-    #AND user activities count is >= 5
-  end
-
-  def self.challenge_users
-   #total count of users enrolled in an active challenge
-   #users that have a user_challenge
-   #challenge end date is >= Date.today
+    User.where(@user.activity_entries.where("created_at BETWEEN ? AND ?", Time.zone.now, Time.zone.now - 7))
   end
 
 end
