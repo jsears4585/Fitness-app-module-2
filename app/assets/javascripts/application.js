@@ -35,7 +35,7 @@ $(document).ready(function() {
   });
 });
 
-var post_it = function() {
+var post_it = function(params) {
   $.post('/avatar', params, function(){
     $('#ava').hide(400);
   });
