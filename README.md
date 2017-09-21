@@ -14,13 +14,13 @@ Don't have a fitbit but still want to keep track of your daily physical activiti
 ## Table Relationships
 User
   * Has and belongs to many challenges
-  * Has many exercise posts
+  * Has many activity entries
 
 Challenges
 
   * Has and belongs to many users
 
-Activity Entry 
+Activity Entry
   * Belongs to user
 
 ## Demo
