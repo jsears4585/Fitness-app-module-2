@@ -11,6 +11,17 @@ Don't have a fitbit but still want to keep track of your daily physical activiti
   * JavaScript
   * FusionCharts
 
+## Table Relationships
+User
+  * Has and belongs to many challenges
+  * Has many exercise posts
+Challenges
+  * Has and belongs to many users
+  * Has many exercise posts
+Exercise Post
+  * Belongs to user
+  * Belongs to challenges 
+
 ## Demo
   ![Demo1](https://github.com/jsears4585/Fitness-app-module-2/blob/master/public/demo/homepage.png)
 
