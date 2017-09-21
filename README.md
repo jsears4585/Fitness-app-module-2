@@ -19,11 +19,9 @@ User
 Challenges
 
   * Has and belongs to many users
-  * Has many exercise posts
-  
-Exercise Post
+
+Activity Entry 
   * Belongs to user
-  * Belongs to challenges
 
 ## Demo
   ![Demo1](https://github.com/jsears4585/Fitness-app-module-2/blob/master/public/demo/homepage.png)
