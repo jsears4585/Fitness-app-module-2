@@ -1,24 +1,18 @@
-# README
+# Fitness Tracker
+Don't have a fitbit but still want to keep track of your daily physical activities? Look no more than the fitness tracker! Enter your exercise entry in our app and we'll calculate how many calories you burned!
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+##  User Story
+  * As a user, I can enter a new exercise entry and the amount of time I spent on that activity and get back how many calories I burned.
+  * As a user, I can see the weekly calories burned.
+  * As a user, I can search, create, and join challenges to be more engaged and have goals for my fitness journey.
 
-Things you may want to cover:
+## Technologies Used
+  * Rubyon Rails
+  * JavaScript
+  * FusionCharts
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## Demo
+  ![Demo1](https://github.com/rkoko/Fitness-app-module-2/blob/master/public/demo/homepage.png)
+  ![Demo2](https://github.com/rkoko/Fitness-app-module-2/blob/master/public/demo/userProfile.png)
+  ![Demo3](https://github.com/rkoko/Fitness-app-module-2/blob/master/public/demo/createChallenge.png)
+  ![Demo4](https://github.com/rkoko/Fitness-app-module-2/blob/master/public/demo/createChal.png)
