@@ -17,5 +17,3 @@ Don't have a fitbit but still want to keep track of your daily physical activiti
   ![Demo2](https://github.com/jsears4585/Fitness-app-module-2/blob/master/public/demo/userProfile.png)
 
   ![Demo3](https://github.com/jsears4585/Fitness-app-module-2/blob/master/public/demo/createChallenge.png)
-
-  ![Demo4](https://github.com/jsears4585/Fitness-app-module-2/blob/master/public/demo/createChal.png)
